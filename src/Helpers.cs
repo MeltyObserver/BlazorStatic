@@ -22,9 +22,9 @@ public class BlazorStaticHelpers(BlazorStaticOptions options, ILogger<BlazorStat
     /// <param name="mediaPaths">If you need to change media paths of images, do it here.
     /// Used in internal parsing method. Translating "media/img.jpg" to "path/configured/by/useStaticFiles/img.jpg"</param>
     /// <returns></returns>
-    public async Task<string> ParseMarkdownFile(string filePath, (string mediaPathToBeReplaced, string mediaPathNew)? mediaPaths = default)
+    public string ParseMarkdownFile(string filePath, (string mediaPathToBeReplaced, string mediaPathNew)? mediaPaths = default)
     {
-        string markdownContent = await File.ReadAllTextAsync(filePath);
+        string markdownContent = File.ReadAllText(filePath);
         string htmlContent = Markdown.ToHtml(ReplaceImagePathsInMarkdown(markdownContent,mediaPaths), options.MarkdownPipeline);
         return htmlContent;
     }
@@ -37,12 +37,12 @@ public class BlazorStaticHelpers(BlazorStaticOptions options, ILogger<BlazorStat
     /// <param name="yamlDeserializer"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public  async Task< (string htmlContent, T frontMatter)> 
+    public (string htmlContent, T frontMatter)
         ParseMarkdownFile<T>(string filePath, (string mediaPathToBeReplaced, string mediaPathNew)? mediaPaths = default,
         IDeserializer? yamlDeserializer = default) where T : new()
     {
         yamlDeserializer ??= options.FrontMatterDeserializer;
-        string markdownContent = await File.ReadAllTextAsync(filePath);
+        string markdownContent = File.ReadAllText(filePath);
         MarkdownDocument document = Markdown.Parse(markdownContent, options.MarkdownPipeline);
         
         YamlFrontMatterBlock? yamlBlock = document.Descendants<YamlFrontMatterBlock>().FirstOrDefault();

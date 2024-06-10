@@ -16,12 +16,12 @@
 
     [Parameter] public string? FileName { get; set; }
     string? htmlContent;
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         
         string file = $"Content/Docs/{(string.IsNullOrWhiteSpace(FileName) ? "README" : FileName)}.md";
         if(file.EndsWith(".md.md"))
             file = file[..^3];
-        htmlContent =  await BlazorStaticHelpers.ParseMarkdownFile(file,("media","Content/Docs/media") );
+        htmlContent = BlazorStaticHelpers.ParseMarkdownFile(file,("media","Content/Docs/media") );
     }
 }

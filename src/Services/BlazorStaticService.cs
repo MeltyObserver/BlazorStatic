@@ -36,9 +36,9 @@ public class BlazorStaticService(BlazorStaticOptions options,
         if (options.AddNonParametrizedRazorPages)
             AddNonParametrizedRazorPages();
         
-        foreach (Func<Task> action in options.GetBeforeFilesGenerationActions())
+        foreach (Action action in options.GetBeforeFilesGenerationActions())
         {
-            await action.Invoke();
+            action.Invoke();
         }
 
         if (Directory.Exists(options.OutputFolderPath))//clear output folder
@@ -74,7 +74,7 @@ public class BlazorStaticService(BlazorStaticOptions options,
             string? directoryPath = Path.GetDirectoryName(outFilePath);
             if (directoryPath != null)
                 Directory.CreateDirectory(directoryPath);
-            await File.WriteAllTextAsync(outFilePath, content);
+            File.WriteAllText(outFilePath, content);
         }
     }
     /// <summary>

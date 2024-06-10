@@ -11,9 +11,9 @@
   
 @code{
   string htmlContent = "";
-  protected override async Task OnInitializedAsync()
+  protected override void OnInitialized()
   {
-  htmlContent =  await BlazorStaticHelpers.ParseMarkdownFile("README.md");
+  htmlContent = BlazorStaticHelpers.ParseMarkdownFile("README.md");
   htmlContent = htmlContent.Replace("./BlazorStaticWebsite/Content/Docs/","docs/");
   }
 }

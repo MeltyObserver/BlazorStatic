@@ -33,14 +33,14 @@ public class BlogService<TFrontMatter>(BlogOptions<TFrontMatter> options,
     /// from a specified directory, parses them to extract front matter and content,
     /// and then adds them as blog posts to the options.PagesToGenerate.
     /// </summary>
-   public async Task ParseAndAddBlogPosts()
+   public void ParseAndAddBlogPosts()
     {
         string absContentPath;//gets initialized in GetPostsPath
         var files = GetPostsPath();
 
         foreach (string file in files)
         {
-            var (htmlContent, frontMatter) = await helpers.ParseMarkdownFile<TFrontMatter>(file, 
+            var (htmlContent, frontMatter) =  helpers.ParseMarkdownFile<TFrontMatter>(file, 
         
         (options.MediaFolderRelativeToContentPath, options.MediaRequestPath));
             

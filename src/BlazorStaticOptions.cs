@@ -41,14 +41,14 @@ public class BlazorStaticOptions
     /// </summary>
     public string IndexPageHtml { get; set; } = "index.html";
     
-    private readonly List<Func<Task>> _beforeFilesGenerationActions = [];
+    private readonly List<Action> _beforeFilesGenerationActions = [];
 
     
     /// <summary>
     /// Iterator for optional actions.
     /// Is called in GenerateStaticPages, after all other pages are added
     /// </summary>
-    internal IEnumerable<Func<Task>> GetBeforeFilesGenerationActions() => _beforeFilesGenerationActions;
+    internal IEnumerable<Action> GetBeforeFilesGenerationActions() => _beforeFilesGenerationActions;
 
     
     /// <summary>
@@ -56,7 +56,7 @@ public class BlazorStaticOptions
     /// </summary>
     /// <param name="func">The function to add.</param>
     /// <param name="isAsFirst">If true, the function is added to the beginning of the list; otherwise, it is added to the end.</param>
-    public void AddBeforeFilesGenerationFunc(Func<Task> func, bool isAsFirst = false)
+    public void AddBeforeFilesGenerationFunc(Action func, bool isAsFirst = false)
     {
         if (isAsFirst)
             _beforeFilesGenerationActions.Insert(0, func);
@@ -73,7 +73,6 @@ public class BlazorStaticOptions
         AddBeforeFilesGenerationFunc(() =>
         {
             action();
-            return Task.CompletedTask;
         }, isAsFirst);
 
 
