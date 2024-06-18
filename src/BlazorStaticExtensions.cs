@@ -13,6 +13,12 @@ using Services;
 public static class BlazorStaticExtensions
 {
     /// <summary>
+    /// a list of blogs added by the user using AddBlogService()
+    /// </summary>
+    /// <returns></returns>
+    private static List<Action<WebApplication>> Blogs { get; set; } = new();
+
+    /// <summary>
     /// Adds a blog service to the specified IServiceCollection. The blog service uses a generic type
     /// for front matter, allowing customization of the metadata format used in blog posts.
     /// </summary>
@@ -28,6 +34,8 @@ public static class BlazorStaticExtensions
         Action<BlogOptions<TFrontMatter>>? configureOptions = null)
         where TFrontMatter : class, IFrontMatter, new()
     {
+        Blogs.Add(UseBlog<TFrontMatter>);
+
         var options = new BlogOptions<TFrontMatter>();
         configureOptions?.Invoke(options);
 
@@ -70,7 +78,7 @@ public static class BlazorStaticExtensions
     /// </summary>
     /// <param name="app"></param>
     /// <typeparam name="TFrontMatter"></typeparam>
-    public static void UseBlog<TFrontMatter>(this WebApplication app)
+    private static void UseBlog<TFrontMatter>(WebApplication app)
         where TFrontMatter : class, IFrontMatter, new()
     {
         var blogService = app.Services.GetRequiredService<BlogService<TFrontMatter>>();
@@ -118,6 +126,10 @@ public static class BlazorStaticExtensions
     /// <param name="shutdownApp"></param>
     public static void UseBlazorStaticGenerator(this WebApplication app, bool shutdownApp = false)
     {
+        foreach(var blog in Blogs){
+            blog.Invoke(app);
+        }
+
         var blazorStaticService = app.Services.GetRequiredService<BlazorStaticService>();
 
         AddStaticWebAssetsToOutput(app.Environment.WebRootFileProvider, string.Empty, blazorStaticService);

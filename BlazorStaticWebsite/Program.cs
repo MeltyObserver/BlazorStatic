@@ -61,8 +61,8 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>();
 
-app.UseBlog<FrontMatter>();
-app.UseBlog<ProjectFrontMatter>();
+// app.UseBlog<FrontMatter>();
+// app.UseBlog<ProjectFrontMatter>();
 app.UseBlazorStaticGenerator(shutdownApp: !app.Environment.IsDevelopment());
 
 app.Run();
