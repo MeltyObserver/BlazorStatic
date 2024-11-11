@@ -25,6 +25,12 @@
 
             @* <a class="hidden font-medium text-gray-100 sm:block   @(Nm.Uri.EndsWith(item.link)?"":"") " href="@item.link">@item.name</a> *@
         }
+        <div class="sm:col-span-3">
+          <div class="mt-2">
+            <input id="searchInput" type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+            <div id="searchSuggestions" style="width: 200px; background-color:red; position:absolute; z-index:2;"></div>
+          </div>
+        </div>
         <button id="toggle-button" aria-label="Toggle Menu" class="sm:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-8 w-8 text-gray-100">
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -56,14 +62,8 @@
         </div>
     </div>
 </header>
-<script>
-//👎 but what can I do? It's a static html. I can't use C# here.
- const toggleMobileMenu = () => document.querySelector('#mobile-menu').classList.toggle('translate-x-full');
 
- document.querySelector('#toggle-button').addEventListener('click', toggleMobileMenu);
- document.querySelector('#close-mobile-menu-button').addEventListener('click', toggleMobileMenu);
-</script>
-
+<script src="Components/Layout/NavMenu.razor.js" suppress-error="BL9992"></script>
 
 @code
 {

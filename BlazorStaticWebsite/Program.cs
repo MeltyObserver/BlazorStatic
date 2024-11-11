@@ -4,6 +4,8 @@ using BlazorStaticWebsite.Components;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.FluentUI.AspNetCore.Components;
 
+CreateSearchIndex.ParseBlogs();
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.WebHost.UseStaticWebAssets();
