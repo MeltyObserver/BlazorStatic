@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Blazor Static</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="app.min.css">
+    <link rel="icon" type="image/png" href="imgs/blazor-static_200px.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+    </head>
+
+<body class="bg-gray-950 font-tomorrow text-gray-200 "><div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 "><div class="flex h-screen flex-col justify-between"><header class="flex items-center justify-between py-10"><div><a aria-label="BlazorStatic" href><div class="flex items-center justify-between"><div class="mr-3"><img class="w-72" src="imgs/logo.png" alt="logo"></div></div></a></div>
+    <div class="flex items-center space-x-4 leading-5 sm:space-x-6"><a href="" class="hidden font-medium text-gray-100 sm:block">Home</a><a href="blog" class="hidden font-medium text-gray-100 sm:block">Blog</a><a href="tags" class="hidden font-medium text-gray-100 sm:block">Tags</a><a href="docs" class="hidden font-medium text-gray-100 sm:block bg-primary-950 px-2 py-1 rounded-xl" aria-current="page">Docs</a><a href="https://github.com/BlazorStatic/BlazorStatic/" class="hidden font-medium text-gray-100 sm:block"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="hover:text-primary-400 h-6 w-6 fill-current text-gray-200"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a><button id="toggle-button" aria-label="Toggle Menu" class="sm:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-8 w-8 text-gray-100"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg></button>
+        <div id="mobile-menu" class="fixed left-0 top-0 z-10 h-full w-full translate-x-full transform   duration-300 ease-in-out bg-gray-950 opacity-[0.98]"><div class="flex justify-end"><button id="close-mobile-menu-button" class="mr-8 mt-11 h-8 w-8" aria-label="Toggle Menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-100"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button></div>
+            <nav class="fixed mt-8 h-full"><div class="px-12 py-4"><a href="" class="text-2xl font-bold tracking-widest text-gray-100">Home</a></div><div class="px-12 py-4"><a href="blog" class="text-2xl font-bold tracking-widest text-gray-100">Blog</a></div><div class="px-12 py-4"><a href="tags" class="text-2xl font-bold tracking-widest text-gray-100">Tags</a></div><div class="px-12 py-4"><a href="docs" class="text-2xl font-bold tracking-widest text-gray-100 underline" aria-current="page">Docs</a></div><div class="px-12 py-4"><a href="https://github.com/BlazorStatic/BlazorStatic/" class="text-2xl font-bold tracking-widest text-gray-100"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="hover:text-primary-400 h-6 w-6 fill-current text-gray-200"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a></div></nav></div></div></header>
+<script>
+//👎 but what can I do? It's a static html. I can't use C# here.
+ const toggleMobileMenu = () => document.querySelector('#mobile-menu').classList.toggle('translate-x-full');
+
+ document.querySelector('#toggle-button').addEventListener('click', toggleMobileMenu);
+ document.querySelector('#close-mobile-menu-button').addEventListener('click', toggleMobileMenu);
+</script>
+
+        <main class="mb-auto"><div class="prose prose-invert"><h1 id="how-to-deploy">How to deploy</h1>
+<p>Since the output of BlazorStatic are just plan .html files and assets, you can deploy it fairly easily. You can use
+GitHub Pages, Azure Static Web Apps, Netlify, ...</p>
+<h2 id="github-pages">GitHub Pages</h2>
+<ul>
+<li><p>Build and run the app</p>
+</li>
+<li><p>Use <code>JamesIves/github-pages-deploy-action@v4</code> to publish the output folder to GitHub Pages. The way it works is that
+it will create orphaned branch <code>gh-pages</code> and push the content of the output folder there.</p>
+<pre><code class="language-yml">- name: Run webapp and generate static files
+run: |
+    dotnet run --project path/to/yourProject.csproj  --configuration Release
+
+- name: Deploy to GitHub Pages
+uses: JamesIves/github-pages-deploy-action@v4
+with:
+    folder: path/to/output
+</code></pre>
+</li>
+<li><p>Set the GitHub Pages to use <code>gh-pages</code> branch as source.
+<img src="Content/Docs/media/deployement/img.png" alt="setup github pages" /></p>
+</li>
+<li><p>Don't forget to add <code>.nojekyll</code> file to your <code>wwwroot</code> folder, otherwise GitHub Pages will ignore folders starting
+with underscore <code>_</code> (e.g. <code>_content</code>, which is used for serving static content from
+RCL). <a href="https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/">more info</a></p>
+</li>
+<li><p>Check the whole
+pipeline <a href="https://github.com/tesar-tech/BlazorStaticMinimalBlog/blob/master/.github/workflows/publish-to-ghpages-and-nuget.yml">here</a></p>
+</li>
+</ul>
+<h2 id="netlify-using-github-actions-to-generate-the-output">Netlify (Using GitHub Actions to generate the output)</h2>
+<p>You can use GitHub Actions to build and deploy the app to Netlify.</p>
+<ul>
+<li>Build and run the app in CI/CD pipeline</li>
+<li>Create orphaned branch (e.g. <code>netlify-deploy</code>) and push the output folder there.</li>
+<li>Go to Netlify and target the deployment to the <code>netlify-deploy</code> branch.</li>
+<li>Check the whole pipeline <a href="https://github.com/tesar-tech/zodoc/blob/master/.github/workflows/publish-zodoc.yml">here</a> (
+mainly the last steps).</li>
+</ul>
+<h2 id="netlify-using-netlify-build-script-to-generate-the-output">Netlify (Using Netlify build script to generate the output)</h2>
+<p>In this scenario, we don't need GitHub Actions at all. The whole process is handled by Netlify.</p>
+<p>See the result: <a href="https://blazorstatic.netlify.app/">https://blazorstatic.netlify.app/</a></p>
+<h3 id="step-1.add-the-netlify.build.sh">Step 1. Add the 'netlify.build.sh'</h3>
+<p>For this example file is placed
+in <a href="https://github.com/tesar-tech/BlazorStatic/blob/master/.github/workflows/netlify.build.sh">.github/workflows/netlify.build.sh</a>.
+This script will be used by Netlify to build the project.</p>
+<pre><code>#!/usr/bin/env bash
+set -e
+
+## install latest .NET 8.0 release
+pushd /tmp
+wget https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh
+chmod u+x /tmp/dotnet-install.sh
+/tmp/dotnet-install.sh --channel 8.0
+
+## install and run tailwind (if needed)
+wget https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64
+chmod +x /tmp/tailwindcss-linux-x64
+popd
+pushd BlazorStaticWebsite
+/tmp/tailwindcss-linux-x64 --input ./wwwroot/app.css  --output ./wwwroot/app.min.css  --minify
+popd
+
+## run the project to build the static files. Ensure launch profile ASPNETCORE_ENVIRONMENT is set to Production!
+dotnet run --launch-profile &quot;netlify&quot; --project ./BlazorStaticWebsite/BlazorStaticWebsite.csproj
+</code></pre>
+<h3 id="step-2.change-the-permissions-for-the-build-script-so-that-netlify-can-run-it">Step 2. change the permissions for the build script so that netlify can run it.</h3>
+<pre><code>git update-index --chmod=+x &quot;.github/workflows/netlify.build.sh&quot;
+</code></pre>
+<h3 id="step-3.add-a-launch-profile-to-launchsettings.json">Step 3. Add a launch profile to launchSettings.json</h3>
+<ul>
+<li>!!!! Important - ensure the environment is set to Release or netlify will build forever !!!!</li>
+</ul>
+<pre><code> &quot;netlify&quot;: {
+   &quot;commandName&quot;: &quot;Project&quot;,
+   &quot;dotnetRunMessages&quot;: true,
+   &quot;launchBrowser&quot;: true,
+   &quot;applicationUrl&quot;: &quot;http://localhost:5049&quot;,
+   &quot;environmentVariables&quot;: {
+     &quot;ASPNETCORE_ENVIRONMENT&quot;: &quot;Release&quot;
+   }
+ }
+</code></pre>
+<h3 id="step-4.setup-the-netlify-build-settings">Step 4. Setup the netlify build settings.</h3>
+<p>For this site:</p>
+<ul>
+<li><strong>Runtime</strong>: Not set</li>
+<li><strong>Base directory</strong>: <code>/</code></li>
+<li><strong>Package directory</strong>: Not set</li>
+<li><strong>Build command</strong>: <code>./.github/workflows/netlify.build.sh</code></li>
+<li><strong>Publish directory</strong>: <code>/BlazorStaticWebsite/output</code></li>
+<li><strong>Functions directory</strong>: <code>/netlify/functions</code></li>
+</ul>
+<h2 id="cloudflare-pages">Cloudflare Pages</h2>
+<p>Works exactly the same as netlify does. It even uses the same build script.</p>
+<p>Check out the result: <a href="https://blazorstatic.pages.dev/">https://blazorstatic.pages.dev/</a></p>
+<h2 id="azure-static-web-apps">Azure Static Web Apps</h2>
+<p><a href="https://github.com/tesar-tech/BlazorStatic/issues/1"><strong>TODO</strong></a>
+Shouldn't be complicated, but I haven't tried it yet.</p>
+</div></main>
+
+        <footer><div class="mt-16 flex flex-col items-center"><div class="mb-3 flex space-x-4"><a class="text-sm text-gray-500 transition hover:text-gray-600" target="_blank" rel="noopener noreferrer" href="https://github.com/BlazorStatic/BlazorStatic/"><span class="sr-only">github</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="hover:text-primary-400 h-6 w-6 fill-current text-gray-200"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+
+                    <a class="text-sm text-gray-500 transition hover:text-gray-600" target="_blank" rel="noopener noreferrer" href="https://x.com/tesar-tech"><span class="sr-only">x</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="hover:text-primary-400 h-6 w-6 fill-current text-gray-200"><path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path></svg></a></div>
+                <div class="mb-2 flex space-x-2 text-sm text-gray-400"><a target="_blank" rel="noopener noreferrer" href="https://github.com/BlazorStatic/BlazorStatic/">Blazor Static</a>
+                    <div>•</div>
+                    <div>© 2025</div></div></div></footer></div></div>
+        <blazor-focus-on-navigate selector="h1"></blazor-focus-on-navigate></body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+<script>hljs.highlightAll();</script></html><!--Blazor-Web-Initializers:WwogICJfY29udGVudC9NaWNyb3NvZnQuRmx1ZW50VUkuQXNwTmV0Q29yZS5Db21wb25lbnRzL01pY3Jvc29mdC5GbHVlbnRVSS5Bc3BOZXRDb3JlLkNvbXBvbmVudHMubGliLm1vZHVsZS5qcyIKXQ==-->
