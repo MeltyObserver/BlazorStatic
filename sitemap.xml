@@ -21,6 +21,15 @@
     <loc>https://blazorstatic.net/</loc>
   </url>
   <url>
+    <loc>https://blazorstatic.net/MultiRoute</loc>
+  </url>
+  <url>
+    <loc>https://blazorstatic.net/MultiPathDemo</loc>
+  </url>
+  <url>
+    <loc>https://blazorstatic.net/RouteRoulette</loc>
+  </url>
+  <url>
     <loc>https://blazorstatic.net/projects</loc>
   </url>
   <url>
